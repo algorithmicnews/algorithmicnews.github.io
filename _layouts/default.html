@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+{% assign sections = site.pages | where:"type", "section" %}
+
+<html>
+  <head>
+    <title>Dimension by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <div class="logo">
+          <span class="icon fa-gem"></span>
+        </div>
+        <div class="content">
+          <div class="inner">
+           {{ content }}
+          </div>
+        </div>
+        <nav>
+          <ul>
+            {% for section in sections %}
+            <li><a href="#{{section.name|replace:".md",""}}">{{section.title}}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Intro -->
+          {% for section in sections %}
+           <article id="{{section.name|replace:".md",""}}">
+             <h2 class="major">{% if section.longtitle %}{{section.longtitle}}{%else%}{{section.title}}{%endif%}</h2>
+             <span class="image main"><img src="{{section.img}}" alt="" /></span>
+             {{section.content|markdownify}}
+          </article>
+          {% endfor %}
+
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <p class="copyright">
+          &copy; Wouter van Atteveldt. Design: <a href="https://html5up.net">HTML5 UP</a>.
+        </p>
+      </footer>
+    </div>
+
+    <!-- BG -->
+    <div id="bg"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
