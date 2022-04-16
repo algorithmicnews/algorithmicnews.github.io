@@ -1,5 +1,5 @@
 ---
-title: My page
+title: Value-sensitive AI for augmenting local journalism
 layout: default
 ---
 
